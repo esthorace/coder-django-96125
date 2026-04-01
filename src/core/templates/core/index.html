@@ -14,16 +14,28 @@
             --bg-dark: #121212;
         }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-dark);
             color: var(--text-light);
             line-height: 1.6;
-            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        main {
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
+            flex: 1;
+            padding: 20px;
         }
 
         .container {
@@ -81,13 +93,116 @@
             color: #666;
             text-align: center;
         }
+
+        /* Navbar Styles */
+        nav {
+            background: linear-gradient(135deg, var(--django-green) 0%, #0d3a24 100%);
+            padding: 0;
+            border-bottom: 2px solid var(--accent-green);
+            box-shadow: 0 4px 15px rgba(68, 183, 139, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            height: 70px;
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-green);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .navbar-brand:hover {
+            color: var(--text-light);
+            transition: color 0.3s ease;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .navbar-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            position: relative;
+            transition: color 0.3s ease;
+            padding: 8px 12px;
+        }
+
+        .navbar-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-green);
+            transition: width 0.3s ease;
+        }
+
+        .navbar-links a:hover {
+            color: var(--accent-green);
+        }
+
+        .navbar-links a:hover::after {
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 20px;
+            }
+
+            .navbar-brand {
+                margin-bottom: 15px;
+            }
+
+            .navbar-links {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .navbar-links a {
+                font-size: 0.9rem;
+                padding: 6px 10px;
+            }
+        }
     </style>
 </head>
 
 <body>
+    <nav>
+        <div class="navbar">
+            <a href="#" class="navbar-brand">Django</a>
+            <ul class="navbar-links">
+                <li><a href="{% url 'core:dados' %}">Tirar dados</a></li>
+                <li><a href="{% url 'core:usuarios' %}">Ir a usuarios</a></li>
+                <li><a href="{% url 'cliente:index' %}">App Cliente</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    <div class="container">
-        <h1>Django</h1>
+    <main>
+        <div class="container">
+            <h1>Django</h1>
         <div class="tagline">The Web framework for perfectionists with deadlines</div>
 
         <p>
@@ -124,6 +239,7 @@
             Creado con fines informativos • {{ fecha }}
         </footer>
     </div>
+    </main>
 
 </body>
 
