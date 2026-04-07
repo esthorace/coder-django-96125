@@ -1,5 +1,9 @@
 from django.shortcuts import render
 
+from cliente.models import Cliente
+
 
 def index(request):
-    return render(request, "cliente/index.html")
+    cliente = Cliente.objects.all()
+    contexto = {"clientes": cliente}
+    return render(request, "cliente/index.html", contexto)
