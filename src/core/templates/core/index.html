@@ -1,4 +1,5 @@
 {% extends 'core/base.html' %}
+{% load static %}
 
 
 {% block contenido %}
@@ -22,5 +23,7 @@
     {% include 'core/componentes/card.html' with titulo="Escalable" descripcion="Capaz de manejar los picos de tráfico más pesados, desde blogs pequeños hasta redes sociales masivas." %}
     {% include 'core/componentes/card.html' with titulo="Baterías incluidas" descripcion="Incluye docenas de extras para autenticación, administración de contenido, mapas y más." %}
 </div>
+
+<img src="{% static 'core/img/django.svg' %}" alt="Django" class="django-logo">
 
 {% endblock %}
