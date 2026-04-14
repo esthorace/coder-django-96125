@@ -1,0 +1,12 @@
+{% extends 'core/base.html' %}
+
+
+{% block contenido %}
+
+    <h1>Productos</h1>
+    
+    {% for producto in productos %}
+        <p>{{ producto }}</p>
+    {% endfor %}
+    
+{% endblock contenido %}
