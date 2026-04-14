@@ -4,8 +4,12 @@ from producto.models import CategoriaProducto
 from producto.forms import CategoriaProductoForm
 
 
-def index(request):
-    query = CategoriaProducto.objects.all()
+def index(request: HttpRequest):
+    consulta = request.GET.get("consulta")
+    if consulta:
+        query = CategoriaProducto.objects.filter(nombre__contains=consulta)
+    else:
+        query = CategoriaProducto.objects.all()
     contexto = {"productos": query}
     return render(request, "producto/index.html", contexto)
 

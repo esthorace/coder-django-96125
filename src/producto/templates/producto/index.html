@@ -6,6 +6,11 @@
 
     <button><a href="{% url 'producto:categoriaproducto_create' %}">Crear Categoria</a></button>
 
+    <form action="" method="get">
+        <input type="text" name="consulta" id="" placeholder="Buscar...">
+        <button type="submit">Buscar</button>
+    </form>
+
     {% for producto in productos %}
         <p>{{ producto }}</p>
     {% endfor %}
