@@ -43,3 +43,13 @@ def categoriaproducto_update(request: HttpRequest, pk: int) -> HttpResponse:
             form.save()
             return redirect("producto:index")
     return render(request, "producto/categoriaproducto_form.html", {"form": form})
+
+
+def categoriaproducto_delete(request: HttpRequest, pk: int) -> HttpResponse:
+    query = CategoriaProducto.objects.get(id=pk)
+    if request.method == "POST":
+        query.delete()
+        return redirect("producto:index")
+    return render(
+        request, "producto/categoriaproducto_confirm_delete.html", {"categoria": query}
+    )

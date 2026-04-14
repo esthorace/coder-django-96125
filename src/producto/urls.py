@@ -21,5 +21,9 @@ urlpatterns = [
         views.categoriaproducto_update,
         name="categoriaproducto_update",
     ),
-
+    path(
+        "categoriaproducto/delete/<int:pk>",
+        views.categoriaproducto_delete,
+        name="categoriaproducto_delete",
+    ),
 ]

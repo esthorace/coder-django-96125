@@ -1,0 +1,11 @@
+{% extends 'core/base.html' %}
+
+{% block contenido %}
+    <h1>Borrar Categoría de Producto</h1>
+    <p>¿Está seguro de borrar "{{ categoria.nombre }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmo</button>
+    </form>
+    <button><a href="{% url 'producto:index' %}">Volver</a></button>
+{% endblock contenido %}
