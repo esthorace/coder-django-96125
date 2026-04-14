@@ -2,9 +2,10 @@
 
 
 {% block contenido %}
-
     <h1>Productos</h1>
-    
+
+    <button><a href="{% url 'producto:categoriaproducto_create' %}">Crear Categoria</a></button>
+
     {% for producto in productos %}
         <p>{{ producto }}</p>
     {% endfor %}
