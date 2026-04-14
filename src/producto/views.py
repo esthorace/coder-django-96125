@@ -28,4 +28,18 @@ def categoriaproducto_create(request: HttpRequest) -> HttpResponse:
 
 def categoriaproducto_detail(request: HttpRequest, pk: int) -> HttpResponse:
     query = CategoriaProducto.objects.get(id=pk)
-    return render(request, "producto/categoriaproducto_detail.html", {"categoria": query})
+    return render(
+        request, "producto/categoriaproducto_detail.html", {"categoria": query}
+    )
+
+
+def categoriaproducto_update(request: HttpRequest, pk: int) -> HttpResponse:
+    query = CategoriaProducto.objects.get(id=pk)
+    if request.method == "GET":
+        form = CategoriaProductoForm(instance=query)
+    if request.method == "POST":
+        form = CategoriaProductoForm(request.POST, instance=query)
+        if form.is_valid():
+            form.save()
+            return redirect("producto:index")
+    return render(request, "producto/categoriaproducto_form.html", {"form": form})

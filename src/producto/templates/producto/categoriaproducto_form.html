@@ -2,7 +2,11 @@
 
 
 {% block contenido %}
-    <h1>Crear Categoría de Productos</h1>
+    {% if form.instance.pk %}
+        <h1>Editar Categoría de Productos</h1>
+    {% else %}
+        <h1>Crear Categoría de Productos</h1>
+    {% endif %}
 
     <form method="post">
         {% csrf_token %}
@@ -11,4 +15,7 @@
         </table>
         <button type="submit">Enviar</button>
     </form>
+    <button>
+        <a href="{% url 'producto:index' %}">Volver</a>
+    </button>
 {% endblock contenido %}
