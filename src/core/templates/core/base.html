@@ -4,29 +4,29 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explorando Django</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'core/estilos.css' %}">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Explorando Django</title>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'core/estilos.css' %}">
+    </head>
 
-<body>
+    <body>
 
-    {% include 'core/componentes/navbar.html' %}
-    <main>
-        <div class="container">
+        {% include 'core/componentes/navbar.html' %}
+        <main>
+            <div class="container">
 
-            {% block contenido %}
-            {% endblock contenido %}
+                {% block contenido %}
+                {% endblock contenido %}
 
-            <footer>
-                {{ fecha }}
-            </footer>
-        </div>
-    </main>
+                <footer>
+                    {{ fecha }}
+                </footer>
+            </div>
+        </main>
 
-</body>
+    </body>
 
 </html>

@@ -1,0 +1,13 @@
+{% extends 'core/base.html' %}
+
+{% block contenido %}
+    <h1>Detalle de Categoría de Producto</h1>
+    <ul>
+        <li><strong>Nombre:</strong> {{ categoria.nombre }}</li>
+        {% if categoria.descripcion %}
+            <li><strong>Descripcion:</strong> {{ categoria.descripcion }}</li>
+        {% else %}
+            <li><strong>Descripcion:</strong> -</li>
+        {% endif %}
+    </ul>
+{% endblock contenido %}

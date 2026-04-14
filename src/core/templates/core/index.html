@@ -4,26 +4,26 @@
 
 {% block contenido %}
 
-<h1>Django</h1>
-<div class="tagline">The Web framework for perfectionists with deadlines</div>
+    <h1>Django</h1>
+    <div class="tagline">The Web framework for perfectionists with deadlines</div>
 
-<p>
-    <strong>Django</strong> es un framework web de alto nivel, basado en <strong>Python</strong>, que fomenta el
-    desarrollo rápido y un diseño limpio y pragmático.
-</p>
+    <p>
+        <strong>Django</strong> es un framework web de alto nivel, basado en <strong>Python</strong>, que fomenta el
+        desarrollo rápido y un diseño limpio y pragmático.
+    </p>
 
-<p>
-    Fue construido por desarrolladores experimentados para encargarse de gran parte de la configuración del
-    desarrollo web, permitiéndote concentrarte en escribir tu aplicación sin necesidad de reinventar la rueda.
-</p>
+    <p>
+        Fue construido por desarrolladores experimentados para encargarse de gran parte de la configuración del
+        desarrollo web, permitiéndote concentrarte en escribir tu aplicación sin necesidad de reinventar la rueda.
+    </p>
 
-<div class="features">
-    {% include 'core/componentes/card.html' with titulo="Ridículamente rápido" descripcion="Diseñado para ayudar a los desarrolladores a llevar aplicaciones del concepto a la realidad lo más rápido posible." %}
-    {% include 'core/componentes/card.html' with titulo="Seguro por defecto" descripcion="Ayuda a evitar errores comunes de seguridad como inyección SQL, XSS y CSRF." %}
-    {% include 'core/componentes/card.html' with titulo="Escalable" descripcion="Capaz de manejar los picos de tráfico más pesados, desde blogs pequeños hasta redes sociales masivas." %}
-    {% include 'core/componentes/card.html' with titulo="Baterías incluidas" descripcion="Incluye docenas de extras para autenticación, administración de contenido, mapas y más." %}
-</div>
+    <div class="features">
+        {% include 'core/componentes/card.html' with titulo="Ridículamente rápido" descripcion="Diseñado para ayudar a los desarrolladores a llevar aplicaciones del concepto a la realidad lo más rápido posible." %}
+        {% include 'core/componentes/card.html' with titulo="Seguro por defecto" descripcion="Ayuda a evitar errores comunes de seguridad como inyección SQL, XSS y CSRF." %}
+        {% include 'core/componentes/card.html' with titulo="Escalable" descripcion="Capaz de manejar los picos de tráfico más pesados, desde blogs pequeños hasta redes sociales masivas." %}
+        {% include 'core/componentes/card.html' with titulo="Baterías incluidas" descripcion="Incluye docenas de extras para autenticación, administración de contenido, mapas y más." %}
+    </div>
 
-<img src="{% static 'core/img/django.svg' %}" alt="Django" class="django-logo">
+    <img src="{% static 'core/img/django.svg' %}" alt="Django" class="django-logo">
 
 {% endblock %}

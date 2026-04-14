@@ -4,9 +4,9 @@
 {% block contenido %}
 
     <h1>App Cliente</h1>
-    
+
     {% for cliente in clientes %}
         <p>{{ cliente.apellido|upper }}, {{ cliente.nombre}}</p>
     {% endfor %}
-    
+
 {% endblock contenido %}
