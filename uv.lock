@@ -30,6 +30,7 @@ dependencies = [
 
 [package.dev-dependencies]
 dev = [
+    { name = "djhtml" },
     { name = "ipython" },
 ]
 
@@ -37,7 +38,10 @@ dev = [
 requires-dist = [{ name = "django", specifier = ">=6.0.3" }]
 
 [package.metadata.requires-dev]
-dev = [{ name = "ipython", specifier = ">=9.12.0" }]
+dev = [
+    { name = "djhtml", specifier = ">=3.0.11" },
+    { name = "ipython", specifier = ">=9.12.0" },
+]
 
 [[package]]
 name = "colorama"
@@ -69,6 +73,15 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/80/e1/894115c6bd70e2c8b66b0c40a3c367d83a5a48c034a4d904d31b62f7c53a/django-6.0.3.tar.gz", hash = "sha256:90be765ee756af8a6cbd6693e56452404b5ad15294f4d5e40c0a55a0f4870fe1", size = 10872701, upload-time = "2026-03-03T13:55:15.026Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/72/b1/23f2556967c45e34d3d3cf032eb1bd3ef925ee458667fb99052a0b3ea3a6/django-6.0.3-py3-none-any.whl", hash = "sha256:2e5974441491ddb34c3f13d5e7a9f97b07ba03bf70234c0a9c68b79bbb235bc3", size = 8358527, upload-time = "2026-03-03T13:55:10.552Z" },
+]
+
+[[package]]
+name = "djhtml"
+version = "3.0.11"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/22/57/5771714b5961b7ee275a5696cabc3bd8c4a602d7cca103a44016109509fd/djhtml-3.0.11.tar.gz", hash = "sha256:dbaf55684294bda6486a094954e43847a1c0945e521282e008a9aabdac245688", size = 28615, upload-time = "2026-03-26T16:39:17.118Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/a3/c0/8e1f10c58e03fddd1ff4c21a6c22be6cde72dd9cc85f101c2f55e803fd44/djhtml-3.0.11-py3-none-any.whl", hash = "sha256:0013d15d429eb34769aeaf6ea395ad278cf0b8ef35ad19d2cf0c1f214f2843ac", size = 26758, upload-time = "2026-03-26T16:39:15.99Z" },
 ]
 
 [[package]]
