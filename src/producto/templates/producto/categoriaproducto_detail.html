@@ -3,9 +3,9 @@
 {% block contenido %}
     <h1>Detalle de Categoría de Producto</h1>
     <ul>
-        <li><strong>Nombre:</strong> {{ categoria.nombre }}</li>
-        {% if categoria.descripcion %}
-            <li><strong>Descripcion:</strong> {{ categoria.descripcion }}</li>
+        <li><strong>Nombre:</strong> {{ object.nombre }}</li>
+        {% if object.descripcion %}
+            <li><strong>Descripcion:</strong> {{ object.descripcion }}</li>
         {% else %}
             <li><strong>Descripcion:</strong> -</li>
         {% endif %}
