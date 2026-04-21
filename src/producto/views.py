@@ -7,7 +7,15 @@ from django.views.generic import (
     UpdateView,
     DetailView,
     ListView,
+    TemplateView,
 )
+
+
+# VISTA DE ÍNDICE/MENÚ
+
+
+class ProductoIndex(TemplateView):
+    template_name = "producto/index.html"
 
 
 # def index(request: HttpRequest):
@@ -47,7 +55,7 @@ class CategoriaProductoList(ListView):
 class CategoriaProductoCreate(CreateView):
     model = CategoriaProducto
     form_class = CategoriaProductoForm
-    success_url = reverse_lazy("producto:index")
+    success_url = reverse_lazy("producto:categoria_list")
 
 
 # def categoriaproducto_detail(request: HttpRequest, pk: int) -> HttpResponse:
@@ -76,7 +84,7 @@ class CategoriaProductoDetail(DetailView):
 class CategoriaProductoUpdate(UpdateView):
     model = CategoriaProducto
     form_class = CategoriaProductoForm
-    success_url = reverse_lazy("producto:index")
+    success_url = reverse_lazy("producto:categoria_list")
 
 
 # def categoriaproducto_delete(request: HttpRequest, pk: int) -> HttpResponse:
@@ -90,7 +98,7 @@ class CategoriaProductoUpdate(UpdateView):
 
 class CategoriaProductoDelete(DeleteView):
     model = CategoriaProducto
-    success_url = reverse_lazy("producto:index")
+    success_url = reverse_lazy("producto:categoria_list")
 
 
 # VISTAS PARA PRODUCTO

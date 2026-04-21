@@ -6,9 +6,13 @@ app_name = "producto"
 
 urlpatterns = [
     # path("", views.index, name="index"),
-    path("", views.CategoriaProductoList.as_view(), name="index"),
-    # path(
-    #     "categoriaproducto/create",
+    path("", views.ProductoIndex.as_view(), name="index"),
+    # Rutas para Categoría de Producto
+    path(
+        "categoria/",
+        views.CategoriaProductoList.as_view(),
+        name="categoria_list",
+    ),
     #     views.categoriaproducto_create,
     #     name="categoriaproducto_create",
     # ),

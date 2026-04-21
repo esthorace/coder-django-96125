@@ -5,9 +5,15 @@
     <ul>
         <li><strong>Nombre:</strong> {{ object.nombre }}</li>
         {% if object.descripcion %}
-            <li><strong>Descripcion:</strong> {{ object.descripcion }}</li>
+            <li><strong>Descripción:</strong> {{ object.descripcion }}</li>
         {% else %}
-            <li><strong>Descripcion:</strong> -</li>
+            <li><strong>Descripción:</strong> -</li>
         {% endif %}
     </ul>
+
+    <div>
+        <a href="{% url 'producto:categoriaproducto_update' object.id %}">Editar</a>
+        <a href="{% url 'producto:categoriaproducto_delete' object.id %}">Eliminar</a>
+        <a href="{% url 'producto:categoria_list' %}">Volver al listado</a>
+    </div>
 {% endblock contenido %}
