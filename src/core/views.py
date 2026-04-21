@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_not_required  # type:ignore
 from datetime import datetime
 from django.views.generic import CreateView
 from django.urls import reverse_lazy
@@ -53,6 +54,8 @@ def ver_usuarios(request):
     return render(request, "core/usuarios.html", {"usuarios": datos})
 
 
+
+@login_not_required
 def index(request):
     ahora = datetime.now()
     contexto = {"fecha": ahora}

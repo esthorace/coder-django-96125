@@ -5,13 +5,13 @@
             <li><a href="{% url 'core:dados' %}">Tirar dados</a></li>
             <li><a href="{% url 'core:usuarios' %}">Ir a usuarios</a></li>
             <li><a href="{% url 'cliente:index' %}">App Cliente</a></li>
-            <li><a href="{% url 'producto:index' %}">Productos</a></li>
             {% if user.is_authenticated %}
-            <li><a href="#">{{ user.username }}</a></li>
-            <form action="{% url 'core:logout' %}" method="post">
-                {% csrf_token %}
-                <button type="submit">Logout</button>
-            </form>
+                <li><a href="{% url 'producto:index' %}">Productos</a></li>
+                <li><a href="#">{{ user.username }}</a></li>
+                <form action="{% url 'core:logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Logout</button>
+                </form>
             {% else %}
                 <li><a href="{% url 'core:login' %}">Login</a></li>
             {% endif %}
