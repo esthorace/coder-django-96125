@@ -1,11 +1,6 @@
-from typing import Any
-
-from django.db.models.query import QuerySet
-from django.http import HttpRequest, HttpResponse
-from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from producto.models import CategoriaProducto
-from producto.forms import CategoriaProductoForm
+from producto.models import CategoriaProducto, Producto
+from producto.forms import CategoriaProductoForm, ProductoForm
 from django.views.generic import (
     CreateView,
     DeleteView,
@@ -96,3 +91,40 @@ class CategoriaProductoUpdate(UpdateView):
 class CategoriaProductoDelete(DeleteView):
     model = CategoriaProducto
     success_url = reverse_lazy("producto:index")
+
+
+# VISTAS PARA PRODUCTO
+
+
+class ProductoList(ListView):
+    model = Producto
+    paginate_by = 10
+
+    def get_queryset(self):
+        consulta = self.request.GET.get("consulta")
+        if consulta:
+            query = Producto.objects.filter(nombre__contains=consulta)
+        else:
+            query = Producto.objects.all()
+        return query
+
+
+class ProductoDetail(DetailView):
+    model = Producto
+
+
+class ProductoCreate(CreateView):
+    model = Producto
+    form_class = ProductoForm
+    success_url = reverse_lazy("producto:producto_list")
+
+
+class ProductoUpdate(UpdateView):
+    model = Producto
+    form_class = ProductoForm
+    success_url = reverse_lazy("producto:producto_list")
+
+
+class ProductoDelete(DeleteView):
+    model = Producto
+    success_url = reverse_lazy("producto:producto_list")

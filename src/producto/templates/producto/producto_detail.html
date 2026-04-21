@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+
+{% block contenido %}
+    <h1>Detalle de Producto</h1>
+    <ul>
+        <li><strong>Nombre:</strong> {{ object.nombre }}</li>
+        <li><strong>Categoría:</strong> {{ object.categoria.nombre|default:"-" }}</li>
+        {% if object.descripcion %}
+            <li><strong>Descripción:</strong> {{ object.descripcion }}</li>
+        {% else %}
+            <li><strong>Descripción:</strong> -</li>
+        {% endif %}
+        <li><strong>Unidad de Medida:</strong> {{ object.unidad_medida }}</li>
+        <li><strong>Stock:</strong> {{ object.stock }}</li>
+        <li><strong>Precio:</strong> ${{ object.precio }}</li>
+        <li><strong>Última Actualización:</strong> {{ object.fecha_actualizacion }}</li>
+    </ul>
+
+    <div>
+        <a href="{% url 'producto:producto_update' object.id %}">Editar</a>
+        <a href="{% url 'producto:producto_delete' object.id %}">Eliminar</a>
+        <a href="{% url 'producto:producto_list' %}">Volver al listado</a>
+    </div>
+{% endblock contenido %}
