@@ -32,6 +32,6 @@ class Producto(models.Model):
         return f"{self.nombre} ({self.unidad_medida}) ${self.precio}"
 
     class Meta:
-        verbos_name = "Producto"
-        verbos_name_plural = "Productos"
-        unique_together = ("categoria", "producto")
+        verbose_name = "Producto"
+        verbose_name_plural = "Productos"
+        unique_together = ("categoria", "nombre")
