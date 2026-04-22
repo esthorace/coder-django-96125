@@ -1,10 +1,12 @@
 from django.contrib.auth.decorators import login_not_required  # type:ignore
+from django.contrib.auth import get_user_model
 from datetime import datetime
-from django.views.generic import CreateView
+from django.db.models.query import QuerySet
+from django.views.generic import CreateView, UpdateView
 from django.urls import reverse_lazy
 from django.shortcuts import render
 from django.http import HttpResponse
-from core.forms import CustomUserCreationForm
+from core.forms import CustomUserCreationForm, UserProfileForm
 
 
 def saludar(request):
@@ -66,3 +68,14 @@ class CustomRegisterView(CreateView):
     form_class = CustomUserCreationForm
     template_name = "core/register.html"
     success_url = reverse_lazy("core:login")
+
+
+class Profile(UpdateView):
+    model = get_user_model()
+    form_class = UserProfileForm
+    template_name = "core/profile.html"
+    success_url = reverse_lazy("core:index")
+
+    def get_object(self):
+        # UpdateView devuelve un pk o slug, pero debo devolver el usuario actual
+        return self.request.user
