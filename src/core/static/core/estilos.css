@@ -108,14 +108,55 @@ nav {
 .navbar-brand {
     font-size: 1.5rem;
     font-weight: 700;
-    color: var(--accent-green);
+    color: var(--text-light);
     text-decoration: none;
     letter-spacing: 1px;
 }
 
 .navbar-brand:hover {
-    color: var(--text-light);
+    color: var(--accent-green);
     transition: color 0.3s ease;
+}
+
+nav .nav-link,
+nav .navbar-brand,
+nav .navbar-toggler {
+    color: var(--text-light) !important;
+}
+
+nav .navbar-nav {
+    list-style: none !important;
+    margin: 0 !important;
+    padding-left: 0 !important;
+}
+
+nav .navbar-nav .nav-item {
+    margin: 0 !important;
+}
+
+nav .nav-link:hover,
+nav .nav-link:focus,
+nav .navbar-brand:hover {
+    color: var(--accent-green) !important;
+}
+
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.55);
+}
+
+.navbar-toggler-icon {
+    filter: invert(1);
+}
+
+.navbar-collapse {
+    background: transparent;
+}
+
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        background: linear-gradient(135deg, var(--django-green) 0%, #0d3a24 100%);
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+    }
 }
 
 .navbar-links {

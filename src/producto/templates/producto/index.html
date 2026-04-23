@@ -1,197 +1,48 @@
 {% extends 'core/base.html' %}
 
 {% block contenido %}
-    <div class="producto-index-container">
-        <h1 class="index-title">Gestión de Productos</h1>
-        <p class="index-subtitle">Selecciona una opción para comenzar</p>
+    <div class="py-5">
+        <div class="text-center mb-4">
+            <h1 class="display-5 fw-bold">Gestión de Productos</h1>
+            <p class="text-muted">Selecciona una opción para comenzar</p>
+        </div>
 
-        <div class="cards-container">
-            <!-- Card Categorías de Productos -->
-            <div class="card card-categoria">
-                <div class="card-header">
-                    <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 2L2 7v10c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-10-5z"/>
-                        <path d="M10 17h4m-2-4v4"/>
-                    </svg>
-                </div>
-                <div class="card-body">
-                    <h2>Categorías de Productos</h2>
-                    <p>Gestiona las categorías en las que se organizan los productos</p>
-                    <div class="card-actions">
-                        <a href="{% url 'producto:categoria_list' %}" class="btn btn-primary">Ver todas</a>
-                        <a href="{% url 'producto:categoriaproducto_create' %}" class="btn btn-secondary">Crear nueva</a>
+        <div class="row g-4">
+            <div class="col-12 col-md-6">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <div>
+                                <h2 class="h5">Categorías de Productos</h2>
+                                <p class="text-muted mb-0">Gestiona las categorías en las que se organizan los productos.</p>
+                            </div>
+                            <span class="badge bg-primary rounded-pill">Categorías</span>
+                        </div>
+                        <div class="mt-4 d-flex gap-2 flex-wrap">
+                            <a href="{% url 'producto:categoria_list' %}" class="btn btn-outline-primary">Ver todas</a>
+                            <a href="{% url 'producto:categoriaproducto_create' %}" class="btn btn-primary">Crear nueva</a>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Card Productos -->
-            <div class="card card-producto">
-                <div class="card-header">
-                    <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="9" cy="21" r="1"/>
-                        <circle cx="20" cy="21" r="1"/>
-                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
-                    </svg>
-                </div>
-                <div class="card-body">
-                    <h2>Productos</h2>
-                    <p>Gestiona el inventario y detalles de los productos</p>
-                    <div class="card-actions">
-                        <a href="{% url 'producto:producto_list' %}" class="btn btn-primary">Ver todos</a>
-                        <a href="{% url 'producto:producto_create' %}" class="btn btn-secondary">Crear nuevo</a>
+            <div class="col-12 col-md-6">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <div>
+                                <h2 class="h5">Productos</h2>
+                                <p class="text-muted mb-0">Gestiona el inventario y detalles de los productos.</p>
+                            </div>
+                            <span class="badge bg-success rounded-pill">Productos</span>
+                        </div>
+                        <div class="mt-4 d-flex gap-2 flex-wrap">
+                            <a href="{% url 'producto:producto_list' %}" class="btn btn-outline-success">Ver todos</a>
+                            <a href="{% url 'producto:producto_create' %}" class="btn btn-success">Crear nuevo</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <style>
-        .producto-index-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        .index-title {
-            text-align: center;
-            font-size: 2.5em;
-            color: #333;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        .index-subtitle {
-            text-align: center;
-            font-size: 1.1em;
-            color: #666;
-            margin-bottom: 50px;
-        }
-
-        .cards-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
-        }
-
-        .card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border: 1px solid #e0e0e0;
-        }
-
-        .card:hover {
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
-            transform: translateY(-5px);
-        }
-
-        .card-header {
-            padding: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 150px;
-        }
-
-        .card-categoria .card-header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        }
-
-        .card-producto .card-header {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-        }
-
-        .card-icon {
-            width: 60px;
-            height: 60px;
-            color: white;
-            stroke-width: 1.5;
-        }
-
-        .card-body {
-            padding: 30px;
-        }
-
-        .card-body h2 {
-            margin: 0 0 15px 0;
-            font-size: 1.5em;
-            color: #333;
-            font-weight: 600;
-        }
-
-        .card-body p {
-            margin: 0 0 25px 0;
-            color: #666;
-            font-size: 1em;
-            line-height: 1.5;
-        }
-
-        .card-actions {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95em;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            display: inline-block;
-            text-align: center;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            flex: 1;
-            min-width: 150px;
-        }
-
-        .btn-primary:hover {
-            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
-            transform: translateY(-2px);
-        }
-
-        .btn-secondary {
-            background: #f0f0f0;
-            color: #333;
-            flex: 1;
-            min-width: 150px;
-            border: 2px solid #e0e0e0;
-        }
-
-        .btn-secondary:hover {
-            background: #e8e8e8;
-            border-color: #d0d0d0;
-            transform: translateY(-2px);
-        }
-
-        @media (max-width: 768px) {
-            .index-title {
-                font-size: 2em;
-            }
-
-            .cards-container {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .card-actions {
-                flex-direction: column;
-            }
-
-            .btn {
-                width: 100%;
-            }
-        }
-    </style>
 {% endblock contenido %}
