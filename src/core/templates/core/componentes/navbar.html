@@ -8,6 +8,9 @@
             {% if user.is_authenticated %}
                 <li><a href="{% url 'producto:index' %}">Productos</a></li>
                 <li><a href="{% url 'core:profile' %}">{{ user.username }}</a></li>
+                {% if user.vendedor.avatar %}
+                    <li><img src="{{ user.vendedor.avatar.url }}" alt="avatar" style="height: 30px;"></li>
+                {% endif %}
                 <form action="{% url 'core:logout' %}" method="post">
                     {% csrf_token %}
                     <button type="submit">Logout</button>
